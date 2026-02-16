@@ -1,0 +1,119 @@
+{
+  "Index": {
+    "title": "FAJI - Federasi Arung Jeram Indonesia",
+    "nav": {
+      "home": "Beranda",
+      "about": "Tentang",
+      "program": "Program",
+      "gallery": "Galeri",
+      "live": "Live"
+    },
+    "hero": {
+      "title": "Taklukkan Jeram, Lestarikan Alam",
+      "subtitle": "Federasi resmi olahraga arung jeram di Indonesia, membina atlet berprestasi dan pariwisata berkelanjutan.",
+      "cta": "Gabung Kami",
+      "learnMore": "Pelajari Lebih Lanjut",
+      "badge": "Resmi & Profesional"
+    },
+    "sponsors": {
+      "title": "Didukung Oleh"
+    },
+    "about": {
+      "title": "Tentang FAJI",
+      "subtitle": "Membangun Prestasi & Menjaga Alam",
+      "description": "Federasi Arung Jeram Indonesia (FAJI) adalah induk organisasi olahraga arung jeram di Indonesia yang berdedikasi untuk memajukan olahraga ini sebagai prestasi, rekreasi, dan sarana pelestarian sungai.",
+      "stats": {
+        "members": "Anggota Aktif",
+        "rivers": "Sungai Terdaftar",
+        "events": "Kejuaraan/Tahun"
+      },
+      "features": {
+        "achievement": {
+          "title": "Prestasi Dunia",
+          "desc": "Mencetak atlet berkelas internasional yang mengharumkan nama bangsa."
+        },
+        "conservation": {
+          "title": "Penjaga Sungai",
+          "desc": "Garda terdepan dalam pelestarian ekosistem sungai Indonesia."
+        }
+      },
+      "visiMisi": {
+        "title": "Visi & Misi",
+        "content": "Menjadikan arung jeram sebagai olahraga unggulan yang berprestasi di tingkat internasional serta menjadi pelopor dalam pelestarian sungai dan pengembangan wisata petualangan yang berkelanjutan."
+      },
+      "map": {
+        "title": "Sebaran Keanggotaan FAJI",
+        "subtitle": "Jangkauan Nasional",
+        "description": "FAJI hadir di 34 provinsi di seluruh Indonesia, menyatukan komunitas arung jeram dari Sabang sampai Merauke."
+      }
+    },
+    "program": {
+      "title": "Program Unggulan",
+      "subtitle": "Agenda Kegiatan Nasional",
+      "description": "Ikuti berbagai program kami yang dirancang untuk atlet, penggemar, dan pecinta alam.",
+      "items": {
+        "competition": {
+          "title": "Kejuaraan Nasional",
+          "desc": "Kompetisi tingkat nasional untuk mencari bibit atlet unggul.",
+          "imageUrl": "https://images.unsplash.com/photo-1608659744249-e7a418fb04b6?q=80&w=2115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        "training": {
+          "title": "Sertifikasi Pemandu",
+          "desc": "Standarisasi kompetensi untuk keamanan wisata arung jeram.",
+          "imageUrl": "https://images.unsplash.com/photo-1608659744249-e7a418fb04b6?q=80&w=2115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        "conservation": {
+          "title": "Konservasi Sungai",
+          "desc": "Aksi nyata menjaga kebersihan dan kelestarian sungai Indonesia.",
+          "imageUrl": "https://images.unsplash.com/photo-1608659744249-e7a418fb04b6?q=80&w=2115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        "tourism": {
+          "title": "Wisata Arung Jeram",
+          "desc": "Pengembangan destinasi wisata sungai yang aman dan berkelanjutan.",
+          "imageUrl": "https://images.unsplash.com/photo-1563811771123-5e927c152940?q=80&w=800&auto=format&fit=crop"
+        },
+        "scouting": {
+          "title": "Pencarian Bakat",
+          "desc": "Program pembinaan usia dini untuk regenerasi atlet nasional.",
+          "imageUrl": "https://images.unsplash.com/photo-1596423736737-2e11831887e4?q=80&w=800&auto=format&fit=crop"
+        }
+      },
+      "cta": "Lihat Semua Program"
+    },
+    "gallery": {
+      "title": "Galeri Kegiatan",
+      "subtitle": "Momen Terbaik",
+      "description": "Dokumentasi dari berbagai kegiatan, kejuaraan, dan ekspedisi sungai."
+    },
+    "live": {
+      "title": "Siaran Langsung",
+      "badge": "Sedang Berlangsung",
+      "description": "Saksikan aksi para atlet terbaik Indonesia bertarung di jeram secara langsung.",
+      "watchNow": "Tonton Sekarang"
+    },
+    "footer": {
+      "description": "Membangun karakter bangsa melalui olahraga arus deras.",
+      "links": "Tautan",
+      "contact": "Kontak",
+      "social": "Sosial Media",
+      "newsletter": "Berlangganan Berita",
+      "newsletterPlaceholder": "Email Anda",
+      "subscribe": "Kirim"
+    }
+  },
+  "LivePage": {
+    "title": "FAJI Live Stream",
+    "description": "Pusat siaran langsung kejuaraan dan event FAJI.",
+    "upcoming": "Jadwal Mendatang",
+    "recent": "Siaran Ulang",
+    "liveNow": "Sedang Tayang",
+    "eventTitle": "Kejuaraan Nasional Arung Jeram 2025 - Hari 2",
+    "eventSubtitle": "Sungai Citarik, Jawa Barat • Siaran Resmi",
+    "share": "Bagikan",
+    "subscribe": "Langganan",
+    "comingSoon": "Segera Hadir",
+    "itemTitle": "Sprint Putra - Heat",
+    "replayTitle": "Citarum Open 2024 - Sorotan",
+    "timeAgo": "2 minggu lalu"
+  }
+}
