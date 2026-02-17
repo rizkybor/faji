@@ -1,5 +1,5 @@
 'use client';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations, useLocale, useMessages } from 'next-intl';
 import { Link, usePathname } from '@/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useState, useEffect } from 'react';
@@ -9,6 +9,7 @@ import Image from 'next/image';
 
 export default function Navigation() {
   const t = useTranslations('Index.nav');
+  const messages: any = useMessages();
   const locale = useLocale();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
@@ -22,11 +23,18 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { href: '/', label: t('home') },
-    { href: '/about', label: t('about') },
-    { href: '/program', label: t('program') },
-    { href: '/gallery', label: t('gallery') },
+  // Use dynamic items if available, else fallback to hardcoded
+  const dynamicLinks = messages.NavigationItems?.map((item: any) => ({
+    href: item.href,
+    label: item.label,
+    isLive: item.href === '/live'
+  }));
+
+  const navLinks = dynamicLinks || [
+    { href: '/', label: t('home'), isLive: false },
+    { href: '/about', label: t('about'), isLive: false },
+    { href: '/program', label: t('program'), isLive: false },
+    { href: '/gallery', label: t('gallery'), isLive: false },
     { href: '/live', label: t('live'), isLive: true },
   ];
 
@@ -67,7 +75,7 @@ export default function Navigation() {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-6">
-              {navLinks.map((link) => (
+              {navLinks.map((link: any) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -118,7 +126,7 @@ export default function Navigation() {
       {isOpen && (
         <div className="md:hidden bg-white shadow-xl absolute top-full left-0 w-full border-t border-gray-100">
           <div className="px-4 pt-2 pb-6 space-y-2">
-            {navLinks.map((link) => (
+            {navLinks.map((link: any) => (
               <Link
                 key={link.href}
                 href={link.href}

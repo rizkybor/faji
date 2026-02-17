@@ -2,8 +2,7 @@ import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {Inter} from "next/font/google";
 import "../globals.css";
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
+import LayoutContent from '@/components/LayoutContent';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -86,16 +85,12 @@ export default async function LocaleLayout({
   params: {locale: string};
 }) {
   const messages = await getMessages();
- 
+
   return (
     <html lang={locale} className="scroll-smooth">
       <body className={`${inter.variable} font-sans`}>
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <Navigation />
-          <main className="min-h-screen">
-            {children}
-          </main>
-          <Footer />
+          <LayoutContent>{children}</LayoutContent>
         </NextIntlClientProvider>
       </body>
     </html>

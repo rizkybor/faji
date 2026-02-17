@@ -115,5 +115,32 @@
     "itemTitle": "Sprint Putra - Heat",
     "replayTitle": "Citarum Open 2024 - Sorotan",
     "timeAgo": "2 minggu lalu"
+  },
+  "Dashboard": {
+    "login": {
+      "title": "Masuk ke Dashboard",
+      "subtitle": "Kelola konten website FAJI",
+      "username": "Nama Pengguna",
+      "password": "Kata Sandi",
+      "button": "Masuk",
+      "forgot": "Lupa kata sandi?",
+      "error": "Kredensial tidak valid"
+    },
+    "nav": {
+      "overview": "Ringkasan",
+      "pages": "Halaman",
+      "posts": "Berita",
+      "media": "Media",
+      "settings": "Pengaturan",
+      "logout": "Keluar"
+    },
+    "overview": {
+      "welcome": "Selamat Datang kembali, Admin!",
+      "stats": {
+        "visitors": "Total Pengunjung",
+        "posts": "Total Berita",
+        "members": "Anggota Baru"
+      }
+    }
   }
 }

@@ -115,5 +115,32 @@
     "itemTitle": "Men's Sprint - Heat",
     "replayTitle": "Citarum Open 2024 - Highlights",
     "timeAgo": "2 weeks ago"
+  },
+  "Dashboard": {
+    "login": {
+      "title": "Login to Dashboard",
+      "subtitle": "Manage FAJI website content",
+      "username": "Username",
+      "password": "Password",
+      "button": "Login",
+      "forgot": "Forgot password?",
+      "error": "Invalid credentials"
+    },
+    "nav": {
+      "overview": "Overview",
+      "pages": "Pages",
+      "posts": "Posts",
+      "media": "Media",
+      "settings": "Settings",
+      "logout": "Logout"
+    },
+    "overview": {
+      "welcome": "Welcome back, Admin!",
+      "stats": {
+        "visitors": "Total Visitors",
+        "posts": "Total Posts",
+        "members": "New Members"
+      }
+    }
   }
 }

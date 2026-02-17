@@ -1,16 +1,25 @@
 'use client';
+
+import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { Link } from '@/navigation';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link, usePathname } from '@/navigation';
 import Image from 'next/image';
 import { programs } from '@/data/programs';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function ProgramSection() {
   const t = useTranslations('Index.program');
+  const pathname = usePathname();
+  const isProgramPage = pathname === '/program';
 
   return (
-    <section id="program" className="py-24 bg-gray-50/50">
+    <section id="program" className="py-24 bg-gray-50/50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.div 
@@ -43,55 +52,119 @@ export default function ProgramSection() {
           </motion.p>
         </div>
 
-        {/* Scrolling or Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {programs.slice(0, 3).map((program, index) => (
-            <motion.div
-              key={program.key}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group bg-gray-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col h-full"
+        {/* Slider Layout for Program Page, Grid for Home */}
+        {isProgramPage ? (
+          <div className="relative group/slider">
+            <Swiper
+              modules={[Navigation, Pagination]}
+              spaceBetween={30}
+              slidesPerView={1}
+              navigation={{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              }}
+              pagination={{ clickable: true }}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+              }}
+              className="pb-12 px-4 !overflow-visible"
             >
-              {/* Image Header */}
-              <div className="relative h-56 overflow-hidden">
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
-                <Image 
-                  src={t(`items.${program.key}.imageUrl`)} 
-                  alt={t(`items.${program.key}.title`)}
-                  fill
-                  className="object-cover transform group-hover:scale-110 transition-transform duration-700"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className={`absolute top-4 right-4 p-3 rounded-2xl ${program.color} z-20 shadow-sm backdrop-blur-sm bg-opacity-90`}>
-                  <program.icon className="w-6 h-6" />
-                </div>
-              </div>
+              {programs.map((program, index) => (
+                <SwiperSlide key={program.key} className="h-auto px-2">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col h-full"
+                  >
+                    <div className="relative h-64 overflow-hidden">
+                      <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
+                      <Image 
+                        src={t(`items.${program.key}.imageUrl`)} 
+                        alt={t(`items.${program.key}.title`)}
+                        fill
+                        className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                      />
+                      <div className={`absolute top-4 right-4 p-3 rounded-2xl ${program.color} z-20 shadow-sm backdrop-blur-sm bg-opacity-90`}>
+                        <program.icon className="w-6 h-6" />
+                      </div>
+                    </div>
 
-              {/* Content */}
-              <div className="p-8 flex-1 flex flex-col">
-                <h4 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-faji-blue transition-colors">
-                  {t(`items.${program.key}.title`)}
-                </h4>
-                <p className="text-gray-600 mb-6 flex-1 leading-relaxed">
-                  {t(`items.${program.key}.desc`)}
-                </p>
-                <div className="pt-6 border-t border-gray-200">
-                  <Link href={`/program/${program.key}`} className="inline-flex items-center text-faji-blue font-bold hover:text-faji-green transition-colors group-hover:translate-x-1 duration-300">
-                    {t('cta')} <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
+                    <div className="p-8 flex-1 flex flex-col">
+                      <h4 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-faji-blue transition-colors">
+                        {t(`items.${program.key}.title`)}
+                      </h4>
+                      <p className="text-gray-600 mb-6 flex-1 leading-relaxed line-clamp-3">
+                        {t(`items.${program.key}.desc`)}
+                      </p>
+                      <div className="pt-6 border-t border-gray-200">
+                        <Link href={`/program/${program.key}`} className="inline-flex items-center text-faji-blue font-bold hover:text-faji-green transition-colors group-hover:translate-x-1 duration-300">
+                          {t('cta')} <ArrowRight className="ml-2 w-4 h-4" />
+                        </Link>
+                      </div>
+                    </div>
+                  </motion.div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            
+            {/* Custom Navigation Buttons */}
+            <button className="swiper-button-prev !w-12 !h-12 !bg-white !text-faji-blue !rounded-full !shadow-lg after:!text-lg hover:!bg-faji-blue hover:!text-white transition-colors opacity-0 group-hover/slider:opacity-100 absolute left-0 top-1/2 -translate-y-1/2 z-10 -ml-4 lg:-ml-6 disabled:opacity-0"></button>
+            <button className="swiper-button-next !w-12 !h-12 !bg-white !text-faji-blue !rounded-full !shadow-lg after:!text-lg hover:!bg-faji-blue hover:!text-white transition-colors opacity-0 group-hover/slider:opacity-100 absolute right-0 top-1/2 -translate-y-1/2 z-10 -mr-4 lg:-mr-6 disabled:opacity-0"></button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {programs.slice(0, 3).map((program, index) => (
+              <motion.div
+                key={program.key}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group bg-gray-50 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 flex flex-col h-full"
+              >
+                {/* Image Header */}
+                <div className="relative h-56 overflow-hidden">
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors z-10"></div>
+                  <Image 
+                    src={t(`items.${program.key}.imageUrl`)} 
+                    alt={t(`items.${program.key}.title`)}
+                    fill
+                    className="object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                  <div className={`absolute top-4 right-4 p-3 rounded-2xl ${program.color} z-20 shadow-sm backdrop-blur-sm bg-opacity-90`}>
+                    <program.icon className="w-6 h-6" />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
 
-        <div className="mt-16 text-center">
-          <Link href="/program" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-full text-white bg-faji-blue hover:bg-faji-blue/90 md:text-lg transition-all shadow-lg hover:shadow-faji-blue/25">
-            {t('cta')}
-          </Link>
-        </div>
+                {/* Content */}
+                <div className="p-8 flex-1 flex flex-col">
+                  <h4 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-faji-blue transition-colors">
+                    {t(`items.${program.key}.title`)}
+                  </h4>
+                  <p className="text-gray-600 mb-6 flex-1 leading-relaxed">
+                    {t(`items.${program.key}.desc`)}
+                  </p>
+                  <div className="pt-6 border-t border-gray-200">
+                    <Link href={`/program/${program.key}`} className="inline-flex items-center text-faji-blue font-bold hover:text-faji-green transition-colors group-hover:translate-x-1 duration-300">
+                      {t('cta')} <ArrowRight className="ml-2 w-4 h-4" />
+                    </Link>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
+
+        {!isProgramPage && (
+          <div className="mt-16 text-center">
+            <Link href="/program" className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-bold rounded-full text-white bg-faji-blue hover:bg-faji-blue/90 md:text-lg transition-all shadow-lg hover:shadow-faji-blue/25">
+              {t('cta')}
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
