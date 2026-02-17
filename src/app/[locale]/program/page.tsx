@@ -19,7 +19,7 @@ export default async function ProgramPage({params: {locale}}: {params: {locale: 
       <PageHeader 
         title={t('title')} 
         subtitle={t('subtitle')}
-        image="https://images.unsplash.com/photo-1569790526975-1d494c312bc9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGFydW5nJTIwamVyYW18ZW58MHx8MHx8fDA%3D"
+        image="https://images.unsplash.com/photo-1595637729374-631ef9c4da10?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       />
       <ProgramSection />
     </div>

@@ -46,7 +46,7 @@ export default function Navigation() {
             <Link href="/" locale={locale as any} className="flex items-center gap-2 group">
               <div className="relative w-10 h-10">
                 <Image 
-                  src="/images/logo.png" 
+                  src="/images/logos/logo.png" 
                   alt="FAJI Logo" 
                   fill 
                   className="object-contain"
@@ -138,8 +138,8 @@ export default function Navigation() {
                 </div>
               </Link>
             ))}
-            <div className="pt-4 mt-4 border-t border-gray-100 px-4">
-               <LanguageSwitcher isScrolled={true} />
+            <div className="pt-4 mt-4 border-t border-gray-100 px-4 flex justify-center">
+               <LanguageSwitcher isScrolled={true} variant="toggle" />
             </div>
           </div>
         </div>

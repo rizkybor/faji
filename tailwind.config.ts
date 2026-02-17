@@ -41,9 +41,6 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
       },
-      backgroundImage: {
-        "hero-pattern": "url('/images/rafting-hero.jpg')",
-      },
     },
   },
   plugins: [],

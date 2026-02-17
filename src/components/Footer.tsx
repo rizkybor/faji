@@ -18,10 +18,10 @@ export default function Footer() {
             <Link href="/" locale={locale as any} className="flex items-center gap-2">
               <div className="relative w-12 h-12">
                  <Image 
-                   src="/images/logo.png" 
-                   alt="FAJI Logo" 
-                   fill 
-                   className="object-contain"
+                  src="/images/logos/logo.png" 
+                  alt="FAJI Logo" 
+                  fill 
+                  className="object-contain"
                    sizes="48px"
                  />
               </div>

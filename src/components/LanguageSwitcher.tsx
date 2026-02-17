@@ -5,18 +5,56 @@ import {ChangeEvent, useTransition, useState, useEffect} from 'react';
 import { Globe } from 'lucide-react';
 import clsx from 'clsx';
 
-export default function LanguageSwitcher({ isScrolled = false }: { isScrolled?: boolean }) {
+export default function LanguageSwitcher({ isScrolled = false, variant = 'select' }: { isScrolled?: boolean; variant?: 'select' | 'toggle' }) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const [isPending, startTransition] = useTransition();
 
-  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
     startTransition(() => {
       router.replace(pathname, {locale: nextLocale as any});
     });
   };
+
+  const handleToggle = (nextLocale: string) => {
+    if (nextLocale === locale) return;
+    startTransition(() => {
+      router.replace(pathname, {locale: nextLocale as any});
+    });
+  };
+
+  if (variant === 'toggle') {
+    return (
+      <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-full w-full max-w-[200px]">
+        <button
+          onClick={() => handleToggle('id')}
+          disabled={isPending}
+          className={clsx(
+            "flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
+            locale === 'id'
+              ? "bg-white text-faji-blue shadow-sm"
+              : "text-gray-500 hover:text-gray-700"
+          )}
+        >
+          Bahasa
+        </button>
+        <button
+          onClick={() => handleToggle('en')}
+          disabled={isPending}
+          className={clsx(
+            "flex-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
+            locale === 'en'
+              ? "bg-white text-faji-blue shadow-sm"
+              : "text-gray-500 hover:text-gray-700"
+          )}
+        >
+          English
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="relative group">
@@ -30,12 +68,15 @@ export default function LanguageSwitcher({ isScrolled = false }: { isScrolled?: 
         <select
           defaultValue={locale}
           disabled={isPending}
-          onChange={handleChange}
+          onChange={handleSelectChange}
           className={clsx(
-            "bg-transparent text-sm font-medium focus:outline-none appearance-none cursor-pointer",
+            "bg-transparent text-sm font-medium focus:outline-none appearance-none cursor-pointer pr-4",
             isScrolled ? "text-gray-700" : "text-white"
           )}
-          style={{ color: 'inherit' }}
+          style={{ 
+            color: 'inherit',
+            backgroundImage: 'none'
+          }}
         >
           <option value="id" className="text-black">ID</option>
           <option value="en" className="text-black">EN</option>
