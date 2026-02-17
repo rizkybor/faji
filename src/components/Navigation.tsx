@@ -53,9 +53,14 @@ export default function Navigation() {
                   sizes="40px"
                 />
               </div>
-              <span className={clsx("text-2xl font-bold tracking-tight transition-colors", isScrolled ? "text-faji-blue" : "text-white")}>
-                FAJI
-              </span>
+              <div className="flex flex-col">
+                <span className={clsx("text-2xl font-bold tracking-tight transition-colors leading-none", isScrolled ? "text-faji-blue" : "text-white")}>
+                  FAJI
+                </span>
+                <span className={clsx("text-[0.6rem] font-medium tracking-wider transition-colors uppercase", isScrolled ? "text-gray-600" : "text-gray-300")}>
+                  Federasi Arung Jeram Indonesia
+                </span>
+              </div>
             </Link>
           </div>
 

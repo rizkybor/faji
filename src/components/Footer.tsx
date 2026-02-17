@@ -26,6 +26,9 @@ export default function Footer() {
                  />
               </div>
               <span className="text-2xl font-bold tracking-tight">FAJI</span>
+              <span className="text-[0.6rem] font-medium tracking-wider uppercase">
+                Federasi Arung Jeram Indonesia
+              </span>
             </Link>
             <p className="text-gray-400 leading-relaxed">
               {t('description')}
