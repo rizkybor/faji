@@ -7,12 +7,12 @@ export default function SponsorsSection() {
 
   // Placeholder logos - in a real project, replace with actual sponsor logos
   const sponsors = [
-    { name: "Kemenpora", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_of_the_Ministry_of_Youth_and_Sports_of_the_Republic_of_Indonesia.svg/1200px-Logo_of_the_Ministry_of_Youth_and_Sports_of_the_Republic_of_Indonesia.svg.png" },
-    { name: "KONI", logo: "https://upload.wikimedia.org/wikipedia/commons/9/90/KONI_Logo.png" },
-    { name: "Wonderful Indonesia", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Wonderful_Indonesia_Logo.svg/1200px-Wonderful_Indonesia_Logo.svg.png" },
-    { name: "Sponsor 4", logo: "https://via.placeholder.com/150x80?text=Sponsor+4" },
-    { name: "Sponsor 5", logo: "https://via.placeholder.com/150x80?text=Sponsor+5" },
-    { name: "Sponsor 6", logo: "https://via.placeholder.com/150x80?text=Sponsor+6" },
+    { name: "Kemenpora", logo: "/images/sponsors/logo-dummy.png" },
+    { name: "KONI", logo: "/images/sponsors/logo-dummy.png" },
+    { name: "Wonderful Indonesia", logo: "/images/sponsors/logo-dummy.png" },
+    { name: "Sponsor 4", logo: "/images/sponsors/logo-dummy.png" },
+    { name: "Sponsor 5", logo: "/images/sponsors/logo-dummy.png" },
+    { name: "Sponsor 6", logo: "/images/sponsors/logo-dummy.png" },
   ];
 
   return (
